@@ -1,0 +1,705 @@
+body{
+    font-family: "微软雅黑";
+}
+
+/*导航条*/
+.TNgvt_bar{
+    background-color: #FFFFFF;
+    background-size: cover;
+    height: 43px;
+    box-shadow: 0px 0px 3px #888888;
+}
+
+
+
+/*导航条内文字*/
+.main_bar_size{
+    width: 1170px;
+    border: 0px solid #00A1D6;
+    margin: 0 auto;
+}
+/*左*/
+.TNgvt_bar_w{
+    margin-left: 0px;
+}
+.TNgvt_bar_w a:hover{
+    /*连带文字一起透明：filter:alpha(opacity:50);
+    opacity:0.5;
+     -moz-opacity:0.5;
+     -khtml-opacity: 0.5;*/
+    background-color:rgba(0,0,0,0.2);
+}
+/*主站标签内容*/
+
+.in a{
+    float: left;
+    padding-bottom: 16px;
+    padding-right: 7px;
+    padding-left: 7px;
+    font-family: "微软雅黑";
+    font-weight: 100;
+    font-size: 12px;
+    float: left;
+}
+.in p{
+    padding-top:14px ;
+    float: left;
+}
+.in_i{
+    width: 16px;
+    float: left;
+    padding-top: 11px;
+    padding-right: 4px;
+}
+
+/*ul内容*/
+.TNgvt_bar_w ul a{
+    padding-top: 14px;
+    padding-bottom: 17px;
+    padding-right: 7px;
+    padding-left: 7px;
+    font-family: "微软雅黑";
+    font-weight: 100;
+    font-size: 12px;
+    float: left;
+
+}
+
+.TNgvt_bar_w a{
+    color: #000000;
+}
+
+/*下载内容*/
+.download{
+    border: 0px solid #fff;
+    position: absolute;
+    margin-left:322px ;
+}
+.download a{
+    padding-bottom: 14px;
+    padding-right: 11px;
+    padding-left: 11px;
+    font-family: "微软雅黑";
+    font-weight: 100;
+    font-size: 12px;
+    float: left;
+}
+.download p{
+    padding-top:14px ;
+    float: left;
+}
+.dl_i{
+    width: 12px;
+    float: left;
+    padding-top: 13px;
+    padding-right: 4px;
+}
+
+.alert_dl_i{
+    display: none;/*在没有动作时隐藏*/
+    position: absolute;
+    top: 36px;
+    left: -113px;
+    width: 300px;
+    z-index: 10;
+}
+/*当鼠标覆盖到download标签时，显示图片*/
+.download:hover .alert_dl_i{
+    display: block;
+
+}
+
+/*右*/
+.test{
+    background-color: black;
+    width: 400px;
+    height: 300px;
+}
+.TNgvt_bar_l{
+    position: absolute;
+    margin-left: 995px;
+    color: #6d757a;
+    font-family: "微软雅黑";
+
+}
+.head{
+    margin-top: 5px;
+    border: 0px solid #000000;
+    position: relative;
+}
+.head_img{
+    width: 33px;
+    border-radius: 25px;
+}
+.alert_login{
+    z-index: 10;
+    border: 1px solid #e9eaed;
+    position: relative;
+    left: -165px;
+    margin-top: 3px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    font-size: 12px;
+    display: none;
+}
+.head:hover .alert_login{
+    display: block;
+}
+/*图片滚动部分*/
+.a_l_img{
+    margin-top: 15px;
+    background: url(../img/bg2.jpg);
+    width: 320px;
+
+}
+/*循环滚动*/
+#demo {
+    overflow:hidden;
+    width: 320px;
+
+}
+#demo img {
+}
+#indemo {
+    float: left;
+    width: 800%;
+}
+#demo1 {
+    float: left;
+}
+#demo2 {
+    float: left;
+}
+
+
+.btn_login{
+    color: #FFFFFF;
+    text-align: center;
+    font-family: "微软雅黑";
+    margin-top:15px ;
+    margin-bottom:10px ;
+    background-color: #00a1d6;
+    width: 320px;
+    height: 45px;
+    border-radius: 4px;
+}
+.alert_login a :hover{
+    border-radius: 4px;
+    background-color: #00b5e5;
+}
+.btn_login p{
+    padding-top: 13px;
+    font-size: 16px;
+}
+.alert_login .register{
+    text-align: center;
+    font-size: 12px;
+    color: #000000;
+}
+.alert_login .register a{
+    color: #00A1D6;
+}
+
+/*历史&投稿*/
+.htr_c{
+    position: absolute;
+    top: 0;
+    border: 0px solid #FFFFFF;
+    width: 40px;
+    height: 29px;
+    margin-left: 47px;
+    padding-top: 14px;
+    text-align: center;
+}
+.history a{
+
+    font-family: "微软雅黑";
+    font-weight: 100;
+    font-size: 12px;
+    color: #000000;
+}
+.history a :hover{
+    background-color:rgba(0,0,0,0.2);
+}
+
+.upload{
+    position: absolute;
+    left: 95px;
+    top: 0;
+}
+.upload a{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.ul_c{
+    padding-top: 14px;
+    background-color: #f45a8d;
+    text-align: center;
+    width: 68px;
+    height: 32px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.upload a :hover{
+    background-color: #fb7299;
+}
+
+
+/*banner结束-主体部分开始*/
+.main_body{
+    border: 0px solid #000;
+    width: 1170px;
+    margin: 0 auto;
+    overflow:hidden;
+    padding-bottom: 200px;
+}
+/*搜索部分*/
+.search{
+    border:0px solid #FFFFFF ;
+    background-color: rgba(0,0,0,0.2);
+    margin: 100px auto;
+    width: 550px;
+    height: 45px;
+    /*padding-top: 2px;*/
+    /*padding-left: 2px;*/
+    border-radius: 4px;
+}
+.search :hover{
+    background-color: #fff;
+}
+.sc_text{
+    background-color: rgba(255,255,255,0.9);
+    height: 39px;
+    margin-top: 2px;
+    margin-left: 2px;
+    border-radius: 4px;
+    width: 480px;
+    padding-left: 13px;
+    font-family: "微软雅黑";
+    font-size: 23px;
+
+    outline-color: invert ;/*这里以下 清除text默认样式*/
+    outline-style: none ;
+    outline-width: 0px ;
+    border: none ;
+    border-style: none ;
+    text-shadow: none ;
+    -webkit-appearance: none ;
+    -webkit-user-select: text ;
+    outline-color: transparent ;
+    box-shadow: none;
+}
+.sc_btn{
+    float: right;
+    margin-top: 10px;
+    margin-right: 3px;
+    /*outline:none;*/
+    border:0px;
+    cursor: pointer;
+    background: url(../img/ser_bl.png) no-repeat;
+    background-size:23px ;
+    width: 35px;
+    height: 35px;
+}
+
+.sc_btn:hover{
+    background: url(../img/ser_pk.png) no-repeat;
+    background-size:23px ;
+    width: 35px;
+    height: 35px;
+}
+/*讨论卡部分*/
+.card{
+    width: 565px;
+    height: 450px;
+    margin-top: 30px;
+    margin-left: 10px;
+    background-color: #f7f9f9;
+    border: 1px solid #d3cece;
+    border-radius:10px;
+    /*box-shadow: 2px 2px 5px #bac9ce;*/
+    float: left;
+}
+.card:hover{
+    background-color: #eff1f1;
+}
+
+/*讨论卡上的主题显示*/
+.card .TAI{
+    width: 565px;
+    border: 0px solid #000000;
+}
+.card .theme{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 400px;
+    height: 35px;
+    border: 0px solid #000000;
+    font-size: 30px;
+    color: #5d5c5c;
+    float: left;
+}
+.card .icon_img{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    float: right;
+}
+
+.card .suoluetu{
+    margin-top:80px;
+    margin-left: 32px;
+}
+.card .suoluetu_img{
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    border: 1px solid #d3cece;
+}
+.card .other{
+    margin-top: 10px;
+}
+.card .other a{
+    float: left;
+}
+.card .other .more{
+    margin-right: 30px;
+    float: right;
+}
+.card .other a p{
+    margin-left: 3px;
+    color: #5d5c5c;
+    float: right;
+}
+.card .other .other_img_f{
+    height: 30px;
+    width: 30px;
+    border-radius: 25px;
+    margin-top: 5px;
+    float: left;
+}
+.card .other .other_img{
+    height: 20px;
+    width: 20px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+/*知识点：父div选择后 子div产生不同的变化*/
+.card .other a:hover .other_img_f{
+    background-color: rgba(0, 181, 229, 0.34);
+}
+.card .other a:hover p{
+    color: #00b5e5;
+}
+/*知识点到此结束*/
+.card .other a{
+    margin-left: 40px;
+}
+
+.card .other .good p{
+    padding-top: 13px;
+}
+.card .other .comments p{
+    padding-top: 13px;
+}
+
+/******login******/
+/*banner*/
+.banner_img{
+    background: url("../img/banner.png");
+    background-size: 1170px 292px;
+    border: 0px solid #000;
+    margin: 0 auto;
+    height: 292px;
+    width: 1170px;
+}
+/*主体部分*/
+.lgi_mainBody{
+    width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.lgi_line1{
+    position: relative;
+    height: 1px;
+    width: 400px;
+    top:-15px;
+    left: 100px;
+    background-color: #e4e4e4;
+}
+.lgi_line2{
+    position: relative;
+    float: right;
+    height: 1px;
+    width: 400px;
+    top:-15px;
+    right: 100px;
+    background-color: #e4e4e4;
+}
+.lgi_line3{
+    position: relative;
+    float: left;
+    height: 300px;
+    width: 1px;
+    top:45px;
+    left: 585px;
+    background-color: #c5c5c5;
+}
+
+.lgi_left{
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.lgi_left img{
+    height: 300px;
+    width: 344px;
+}
+.login_text{
+    margin-top: 40px;
+    font-size: 37px;
+    font-family: "微软雅黑";
+    text-align: center;
+}
+
+/*右，登录表单*/
+.lgi_form{
+    position: relative;
+    float: right;
+    top:-330px;
+    right: 100px;
+    width: 400px;
+}
+.lgi_form ul li{
+    margin-top:20px ;
+}
+.lgi_form ul li input{
+    border: 1px solid #C5C5C5;
+    border-radius:3px ;
+    width: 400px;
+    height: 35px;
+}
+.lgi_form .yzm{
+    width: 200px;
+}
+.lgi_form .rm{
+    width: 13px;
+    height: 13px;
+    display: inline;
+}
+.lgi_form .rmt{
+    font-size: 13px;
+    font-family: "微软雅黑";
+    color: #222222;
+    display: inline;
+}
+.lgi_form .notme{
+    font-size: 13px;
+    font-family: "微软雅黑";
+    color: #C5C5C5;
+    display: inline;
+}
+.lgi_form a{
+    float: right;
+    font-size: 13px;
+    color: #00A1D6;
+    display: inline;
+}
+.lgi_form .login{
+    width: 180px;
+    background-color: #00A1D6;
+    color: #FFFFFF;
+}
+.lgi_form .register{
+    position: relative;
+    text-align: center;
+    width: 180px;
+    height: 24px;
+    border: 1px solid #C5C5C5;
+    border-radius:3px ;
+    background-color: #FFFFFF;
+    color: #6D757A;
+    margin-left: 40px;
+    padding-top: 10px;
+    top: -35px;
+}
+
+
+/******register******/
+.rgt_mainBody{
+    width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.rgt_line1{
+    position: relative;
+    height: 1px;
+    width: 400px;
+    top:-15px;
+    left: 100px;
+    background-color: #e4e4e4;
+}
+.rgt_line2{
+    position: relative;
+    float: right;
+    height: 1px;
+    width: 400px;
+    top:-15px;
+    right: 100px;
+    background-color: #e4e4e4;
+}
+
+/*form*/
+.rgt_form{
+    width: 402px;
+    margin: 60px auto;
+    font-size: 13px;
+    color: #222222;
+}
+.rgt_form a{
+    color: #00A1D6;
+}
+.rgt_form ul li{
+    margin-top:20px ;
+}
+.rgt_form ul li input{
+    border: 1px solid #C5C5C5;
+    border-radius:3px ;
+    width: 387px;
+    height: 35px;
+    padding-left: 13px;
+}
+.rgt_form .slc_country{
+    border: 1px solid #C5C5C5;
+    height: 39px;
+    width: 99px;
+    border-bottom-left-radius:3px ;
+    border-top-left-radius:3px ;
+}
+.rgt_form .in_phone_nub{
+    width: 287px;
+    border-left: none;
+    border-bottom-left-radius:0px ;
+    border-top-left-radius:0px ;
+    float: right;
+}
+.rgt_form .yzm{
+    border: 1px solid #C5C5C5;
+    border-radius: 3px;
+    width: 400px;
+    margin-top: 30px;
+}
+.rgt_form .yzm input{
+    border: 0px;
+    width: 250px;
+    height: 35px;
+}
+.rgt_form .yzm a{
+    position: relative;
+    border-radius: 3px;
+    text-align: center;
+    top:0px;
+    right: 1px;
+    padding-top: 8px;
+    background-color: #00A1D6;
+    color: #FFFFFF;
+    border: 0px;
+    width: 99px;
+    height: 28px;
+    float: left;
+
+    font-size: 13px;
+}
+.rgt_form .yzm a:hover{
+    cursor: default;
+}
+.rgt_form .I_agree{
+    width: 13px;
+    height: 13px;
+    float: left;
+}
+.rgt_form .xieyi{
+    margin-top: 10px;
+}
+.rgt_form .rgt_sbm{
+    width: 400px;
+}
+
+
+/******视频录制页******/
+
+.main_body_video{
+    position: relative;
+}
+
+.videoF{
+	margin: 50px auto;
+	
+	width: 1024px;
+	
+	height: 576px;
+}
+
+.main_body_video .button{
+	margin: 10px auto;
+	width: 270px;
+}
+
+.videoF button{
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 15px;
+	color: #E4E4E4;
+	border: none;
+	background-color: #00A1D6;
+	border-radius: 3px;
+}
+.videoF button[disabled]{
+	background-color: #C5C5C5;
+}
+.videoF button:hover{
+	background-color: #00B5E5;
+}
+
+.luxiangzi{
+	margin: 20px auto;
+	font-size: 30px;
+	width: 70px;
+}
+.videoS{
+width: 1024px;
+height: 576px;
+}
+.dialog{
+    display: none;
+    position: absolute;
+    z-index: 9998;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8)
+}
+.closeDialog{
+    position: fixed;
+    z-index: 9999;
+    border: none;
+    margin-left: 1200px;
+    margin-top: 30px;
+    width: 39px;
+    height: 32px;
+    background: url("../pic/dia-close.png");
+}
+
+.videoP{
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    margin-left: -512px;
+    margin-top: -288px;
+    width: 1024px;
+    height: 576px;
+    display: block;
+    background-color: black;
+}
