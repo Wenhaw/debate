@@ -17,7 +17,7 @@ if (!session_id()) session_start();
     $userId = $_SESSION["userId"];
     ?>
 </head>
-<body style="background-image:radial-gradient(circle at 20% 20%, #99CCCC, #7171B7);">
+<body>
 
 <!--top navigation bar-->
 <div class="TNgvt_bar">
@@ -152,34 +152,23 @@ if (!session_id()) session_start();
         </div>
     </div>
 </div>
-
-
-<!--<div class="banner_img"> </div>-->
-<div id="dialog" class="dialog">
-    <a class="closeDialog" href="javascript:closeDialog()"></a>
-    <video id="recorded" class="videoP"  autoplay playsinline></video>
-</div>
-<div class="main_body_video">
-
-<div class="luxiangzi">録画</div>
-<!-- 录像部分 -->
-  <div class="videoF">
-
-	
-    <video id="gum" class="videoS" autoplay muted playsinline></video>
-
-
-    <div class="button">
-      <button id="record">Start Recording</button>
-      <button id="play" disabled>Play</button>
-      <button id="download" disabled>upload</button>
-    </div>
-
-
-  </div>
-  </div>
-
-  <script src="../js/video.js"></script>
-
-</body>
+		<!-- 头部分结束 -->
+		
+		<!-- 表单部分开始 -->
+		<div class="rgt_mainBody">
+			<div class="login_text">提出</div>
+			<!--分割线*2-->
+			<div class="rgt_line1"></div>
+			<div class="rgt_line2"></div>
+		<form class="tu_form" action="add.php" method="post" id="theme" name="theme" enctype="multipart/form-data">
+			<ul>
+				<li><input type="text" name="theme" class="" placeholder="テーマを入力してください"/></li>
+				<li><textarea name="themeDsc" class="describe" placeholder="テーマについて紹介してください"></textarea></li>
+				<li><input type="file" name="themeImg" id="themeImg" value="" /></li>
+				<li><input type="checkbox" class="privacy" name="themePrv" />private</li>
+				<li><input type="submit" class="tu_sbm" value="提出"/></li>
+			</ul>
+		</form>
+		</div>
+	</body>
 </html>
