@@ -146,7 +146,7 @@ if (!session_id()) session_start();
 
             <!--投稿部分-->
             <div class="upload">
-                <a href="video.php"><div class="ul_c">投稿</div></a>
+                <a href="themeUp.php"><div class="ul_c">投稿</div></a>
             </div>
 
         </div>
@@ -178,6 +178,8 @@ if (!session_id()) session_start();
             <a href="#" class="more"><div class="other_img_f"><img src="../img/more.png" class="other_img"/></div></a>
         </div>
     </div>
+
+    <!--***** card *****-->
     <div class="card">
         <div class="TAI">
             <div class="theme">

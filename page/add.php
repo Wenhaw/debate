@@ -1,4 +1,5 @@
 <?php
+if (!session_id()) session_start();
 header("content-type:text/html;charset=utf-8");
 //引用连接数据库文件
 require_once("conn.php");
@@ -6,20 +7,20 @@ global $con;
 
 //获取表单数据
 $theme = $_POST["theme"];
-$describe = $_POST["themeDsc"];
+/*$describe = $_POST["themeDsc"];
 $image = $_POST["themeImg"];
-$privacy = $_POST["themePrv"];
+$privacy = $_POST["themePrv"];*/
 
 //读取当前数据库中 主题id最大值 存入$num
 $sql_search="SELECT MAX(theme_id) FROM theme;";
 $result = mysqli_query($con,$sql_search);
-$num = mysqli_fetch_array($result);
+$themeId = mysqli_fetch_array($result);
 
-$num[0]++;
+$themeId[0]++;
 
 //获取page路径
 $extend = ".php";
-$path = "theme".$num[0].$extend;
+$path = "theme/".$themeId[0].$extend;
 
 //获取封面
 if (($_FILES["themeImg"]["type"] == "image/gif")
@@ -70,19 +71,37 @@ if($wrong1==3)
 else{
     $img_path= "user/themeImg/" . $_FILES["themeImg"]["name"];//读取封面地址
     if($_POST['theme']){
-                $sql="insert into theme (theme_id,theme_name,theme_dsc,theme_img,theme_privacy) values('$num[0]','$_POST[theme]','$_POST[themeDsc]','$img_path','$privacy')";
+                $sql="insert into theme (theme_id,theme_name,theme_dsc,theme_img,theme_privacy,theme_path) values('$themeId[0]','$_POST[theme]','$_POST[themeDsc]','$img_path','$privacy','$path')";
                 mysqli_query($con,$sql);
-                $num=mysqli_affected_rows($con);
-                if($num>0)
-                    echo "提出成功！<a href='index.php'>ホームページ</a>";
+                $num_d=mysqli_affected_rows($con);
+                if($num_d>0)
+                    echo "提出成功！<a href=$path?themeId=$themeId[0]>テーマへ</a>";
                 else
                     echo "失败！";
     }
     else
         echo "テーマを入力してください！";
 }
+//主题id
+echo "主题id是：".$themeId[0];
 
+//开始替换
+//打开html模板
+$handle=fopen("contentMod.php","rb");
 
+//读取模板内容
+$str=fread($handle,filesize("contentMod.php"));
+
+//替换 str_replace("被替换的"，"替换成"，"在哪替换")
+//为什么在$str里替换?因为上面我们才读取的模板内容，肯定在模板里换撒
+$str=str_replace("{theme}", $theme, $str);
+//$str=str_replace("{news_contents}",$content,$str);
+fclose($handle);
+
+//把替换的内容写进生成的html文件
+$handle=fopen($path,"wb");
+fwrite($handle,$str);
+fclose($handle);
 
 
 ?>

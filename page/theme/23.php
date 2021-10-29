@@ -5,7 +5,7 @@ if (!session_id()) session_start();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{theme}</title>
+	<title>urltest1</title>
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
 	<?php
@@ -155,10 +155,28 @@ if (!session_id()) session_start();
 </div>
 
 <!--主题主体部分-->
+<?php
+$sql = "SELECT * FROM theme WHERE theme_id = '$themeId'";
+$result = mysqli_query($con,$sql);
+$num = mysqli_num_rows($result);
+if($num>0){
+    $row_t = mysqli_fetch_array($result);
+
+?>
+<script>
+    var team = "<?php echo $row_t[4]; ?>";
+    var pst = "<?php echo $row_t[5]; ?>";
+    var video_path = "<?php echo $row_t[2]; ?>"
+    document.getElementById('js-stream-red1').setAttribute("src", 'target');
+</script>
+<?php
+}
+?>
+?>
 <div class="main_chat_body">
 	<div class="container">
 		<div class="main_chat_Theme">
-			<span >{theme}</span>
+			<span >urltest1</span>
 		</div>
 		<div class="main_chat_room">
 			<div class="main_chat_video_B">
@@ -174,23 +192,6 @@ if (!session_id()) session_start();
 				<video id="js-stream-24" class="main_chat_video_RC"></video>
 			</div>
 		</div>
-		<?php
-		$sql = "SELECT * FROM video WHERE theme_id = '$themeId'";
-		$result = mysqli_query($con,$sql);
-		$num = mysqli_num_rows($result);
-		if($num>0){
-				$row_t = mysqli_fetch_array($result);
-
-				?>
-				<script>
-						var team = "<?php echo $row_t[4]; ?>";
-						var pst = "<?php echo $row_t[5]; ?>";
-						var video_path = "../<?php echo $row_t[2]; ?>"
-						document.getElementById('js-stream-'+team+''+pst).setAttribute("src", video_path);
-				</script>
-				<?php
-		}
-		?>
 		<div>
 		</div>
 	</div>

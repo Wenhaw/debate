@@ -745,3 +745,43 @@ height: 576px;
 	background-color: #00A1D6;
 	color: white;
 }
+
+/****video play(theme) part****/
+.main_chat_body{
+    height: 725px;
+    border: 1px solid black;
+}
+.main_chat_Theme{
+    text-align: center;
+    border: 0px solid black;
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
+}
+.main_chat_room{
+
+}
+.main_chat_video_B{
+    position: relative;
+    float: left;
+    width: 250px;
+    margin-left: 3%;
+}
+.main_chat_video_BC{
+    width: 250px;
+    height: 130px;
+    border: 5px solid blue;
+    margin-top: 1%;
+}
+.main_chat_video_R{
+    position: relative;
+    float: right;
+    width: 250px;
+    margin-right: 3%;
+}
+.main_chat_video_RC{
+    margin-top: 1%;
+    width: 250px;
+    height: 130px;
+    border: 5px solid red;
+}

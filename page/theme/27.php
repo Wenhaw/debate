@@ -5,7 +5,7 @@ if (!session_id()) session_start();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{theme}</title>
+	<title>视频src测试</title>
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
 	<?php
@@ -158,39 +158,39 @@ if (!session_id()) session_start();
 <div class="main_chat_body">
 	<div class="container">
 		<div class="main_chat_Theme">
-			<span >{theme}</span>
+			<span >视频src测试</span>
 		</div>
 		<div class="main_chat_room">
 			<div class="main_chat_video_B">
-				<video src="#" controls="controls" id="js-stream-11" class="main_chat_video_BC" ></video>
-				<video id="js-stream-12" class="main_chat_video_BC" ></video>
-				<video id="js-stream-13" class="main_chat_video_BC" ></video>
-				<video id="js-stream-14" class="main_chat_video_BC" ></video>
+				<video controls="controls" id="js-stream-11" class="main_chat_video_BC" ></video>
+				<video controls="controls" id="js-stream-12" class="main_chat_video_BC" ></video>
+				<video controls="controls" id="js-stream-13" class="main_chat_video_BC" ></video>
+				<video controls="controls" id="js-stream-14" class="main_chat_video_BC" ></video>
 			</div>
 			<div class="main_chat_video_R">
-				<video id="js-stream-21" class="main_chat_video_RC"></video>
-				<video id="js-stream-22" class="main_chat_video_RC"></video>
-				<video id="js-stream-23" class="main_chat_video_RC"></video>
-				<video id="js-stream-24" class="main_chat_video_RC"></video>
+				<video controls="controls" id="js-stream-21" class="main_chat_video_RC"></video>
+				<video controls="controls" id="js-stream-22" class="main_chat_video_RC"></video>
+				<video controls="controls" id="js-stream-23" class="main_chat_video_RC"></video>
+				<video controls="controls" id="js-stream-24" class="main_chat_video_RC"></video>
 			</div>
 		</div>
-		<?php
-		$sql = "SELECT * FROM video WHERE theme_id = '$themeId'";
-		$result = mysqli_query($con,$sql);
-		$num = mysqli_num_rows($result);
-		if($num>0){
-				$row_t = mysqli_fetch_array($result);
+        <?php
+        $sql = "SELECT * FROM video WHERE theme_id = '$themeId'";
+        $result = mysqli_query($con,$sql);
+        $num = mysqli_num_rows($result);
+        if($num>0){
+            $row_t = mysqli_fetch_array($result);
 
-				?>
-				<script>
-						var team = "<?php echo $row_t[4]; ?>";
-						var pst = "<?php echo $row_t[5]; ?>";
-						var video_path = "../<?php echo $row_t[2]; ?>"
-						document.getElementById('js-stream-'+team+''+pst).setAttribute("src", video_path);
-				</script>
-				<?php
-		}
-		?>
+            ?>
+            <script>
+                var team = "<?php echo $row_t[4]; ?>";
+                var pst = "<?php echo $row_t[5]; ?>";
+                var video_path = "../<?php echo $row_t[2]; ?>"
+                document.getElementById('js-stream-'+team+''+pst).setAttribute("src", video_path);
+            </script>
+            <?php
+        }
+        ?>
 		<div>
 		</div>
 	</div>

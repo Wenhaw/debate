@@ -46,7 +46,7 @@
 		//写入数据库
 		$video_path= "../upload/" . $_FILES["file"]["name"];//获取视频地址
 
-		$sql="insert into video (user_id, video_path, video_theme, video_team , video_pst , video_time) values('$userId','$video_path','1','1','1','$d_time')";
+		$sql="insert into video (user_id, video_path, video_team , video_pst , video_time) values('$userId','$video_path','1','1','$d_time')";
 		mysqli_query($con,$sql);
 		$num=mysqli_affected_rows($con);
 		

@@ -132,7 +132,7 @@ function stopRecording() {
 
 function play() {
 	showDialog();
-	
+
   var type = (recordedBlobs[0] || {}).type;
   var superBuffer = new Blob(recordedBlobs, {type});
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
@@ -155,16 +155,17 @@ var formatDate = function (date) {
   }else if (millisecond < 100){
     millisecond = '0' + millisecond;
   }
-  return y + m + d + h + minute + second + millisecond;
+  return y +''+ m + ''+ d +''+ h +''+ minute +''+ second +''+ millisecond;
 };
 
 function download() {
   var blob = new Blob(recordedBlobs, {type: 'video/webm'});
   //var url = window.URL.createObjectURL(blob);
- 
+
  var formData = new FormData();
   formData.append("file",blob,formatDate(newDate)+".webm");
-  
+  alert(formatDate(newDate));
+
   var request = new XMLHttpRequest();
   request.open('POST','getVideo.php',true);
   request.onreadystatechange=function(){
@@ -175,4 +176,3 @@ function download() {
   request.send(formData);
 
 }
-

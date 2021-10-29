@@ -5,7 +5,7 @@ if (!session_id()) session_start();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{theme}</title>
+	<title>主题编号测试6</title>
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
 	<?php
@@ -15,7 +15,8 @@ if (!session_id()) session_start();
         die('Could not connect: '.$con->connect_error);
 	}
 	$userId = $_SESSION["userId"];
-    $themeId = $_GET["themeId"];
+    $themeId = $_SESSION["themeId"];
+    echo $themeId;
 	?>
 </head>
 <body style="background-image:radial-gradient(circle at 20% 20%, #99CCCC, #7171B7);">
@@ -45,7 +46,7 @@ if (!session_id()) session_start();
 				<?php
 						$sql = "select * from user where user_id = '$userId' ";
 						$result = mysqli_query($con,$sql);
-                        //$num = mysqli_num_rows($result);
+                        $num = mysqli_num_rows($result);
 						$row = mysqli_fetch_array($result);
 						if($row[4])
 						echo "<img src=../../".$row[4]." class='head_img'/>";
@@ -155,42 +156,29 @@ if (!session_id()) session_start();
 </div>
 
 <!--主题主体部分-->
+<?php
+
+?>
+
 <div class="main_chat_body">
 	<div class="container">
 		<div class="main_chat_Theme">
-			<span >{theme}</span>
+			<span >主题编号测试6</span>
 		</div>
 		<div class="main_chat_room">
-			<div class="main_chat_video_B">
-				<video src="#" controls="controls" id="js-stream-11" class="main_chat_video_BC" ></video>
-				<video id="js-stream-12" class="main_chat_video_BC" ></video>
-				<video id="js-stream-13" class="main_chat_video_BC" ></video>
-				<video id="js-stream-14" class="main_chat_video_BC" ></video>
-			</div>
 			<div class="main_chat_video_R">
-				<video id="js-stream-21" class="main_chat_video_RC"></video>
-				<video id="js-stream-22" class="main_chat_video_RC"></video>
-				<video id="js-stream-23" class="main_chat_video_RC"></video>
-				<video id="js-stream-24" class="main_chat_video_RC"></video>
+				<video src="#" controls="controls" id="js-stream-red1" class="main_chat_video_RC" ></video>
+				<video id="js-stream-red2" class="main_chat_video_RC" ></video>
+				<video id="js-stream-red3" class="main_chat_video_RC" ></video>
+				<video id="js-stream-red4" class="main_chat_video_RC" ></video>
+			</div>
+			<div class="main_chat_video_B">
+				<video id="js-stream-blue1" class="main_chat_video_BC"></video>
+				<video id="js-stream-blue2" class="main_chat_video_BC"></video>
+				<video id="js-stream-blue3" class="main_chat_video_BC"></video>
+				<video id="js-stream-blue4" class="main_chat_video_BC"></video>
 			</div>
 		</div>
-		<?php
-		$sql = "SELECT * FROM video WHERE theme_id = '$themeId'";
-		$result = mysqli_query($con,$sql);
-		$num = mysqli_num_rows($result);
-		if($num>0){
-				$row_t = mysqli_fetch_array($result);
-
-				?>
-				<script>
-						var team = "<?php echo $row_t[4]; ?>";
-						var pst = "<?php echo $row_t[5]; ?>";
-						var video_path = "../<?php echo $row_t[2]; ?>"
-						document.getElementById('js-stream-'+team+''+pst).setAttribute("src", video_path);
-				</script>
-				<?php
-		}
-		?>
 		<div>
 		</div>
 	</div>
