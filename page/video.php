@@ -15,9 +15,20 @@ if (!session_id()) session_start();
         die('Could not connect: '.$con->connect_error);
     }
     $userId = $_SESSION["userId"];
+    $themeId = $_GET["themeId"];//获取当前主题ID
+    $team = $_GET["team"];//获取当前队伍信息
+    $pst = $_GET["pst"];//获取当前位置信息
+    if(!$userId){
+      echo "<script>alert('please login');location='login.php';</script>";
+    }
     ?>
 </head>
 <body style="background-image:radial-gradient(circle at 20% 20%, #99CCCC, #7171B7);">
+  <script>
+    var themeId = "<?php echo $themeId; ?>";
+    var team = "<?php echo $team; ?>";
+    var pst = "<?php echo $pst; ?>";
+  </script>
 
 <!--top navigation bar-->
 <div class="TNgvt_bar">
@@ -165,7 +176,7 @@ if (!session_id()) session_start();
 <!-- 录像部分 -->
   <div class="videoF">
 
-	
+
     <video id="gum" class="videoS" autoplay muted playsinline></video>
 
 

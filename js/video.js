@@ -164,13 +164,13 @@ function download() {
 
  var formData = new FormData();
   formData.append("file",blob,formatDate(newDate)+".webm");
-  alert(formatDate(newDate));
 
   var request = new XMLHttpRequest();
-  request.open('POST','getVideo.php',true);
+  request.open('POST','getVideo.php?team='+team+'&pst='+pst+'&themeId='+themeId,true);
   request.onreadystatechange=function(){
     if(request.readyState==4){
-      alert(request.status==200?"アップロード完了":"测试请先打开浏览器控制台，然后重新录音，在network选项卡里面就能看到上传请求数据和格式了");
+      alert(request.status==200?"アップロード完了":"upload error");
+      location='theme/'+themeId+'.php?themeId='+themeId;
     }
   }
   request.send(formData);

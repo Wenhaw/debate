@@ -15,7 +15,7 @@ if (!session_id()) session_start();
         die('Could not connect: '.$con->connect_error);
 	}
 	$userId = $_SESSION["userId"];
-    $themeId = $_GET["themeId"];
+  $themeId = $_GET["themeId"];//获取当前主题id
 	?>
 </head>
 <body style="background-image:radial-gradient(circle at 20% 20%, #99CCCC, #7171B7);">
@@ -162,33 +162,43 @@ if (!session_id()) session_start();
 		</div>
 		<div class="main_chat_room">
 			<div class="main_chat_video_B">
-				<video src="#" controls="controls" id="js-stream-11" class="main_chat_video_BC" ></video>
-				<video id="js-stream-12" class="main_chat_video_BC" ></video>
-				<video id="js-stream-13" class="main_chat_video_BC" ></video>
-				<video id="js-stream-14" class="main_chat_video_BC" ></video>
+				<a href="../video.php?team=1&pst=1&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-11" class="main_chat_video_BC" ></a>
+				<video id="js-streamV-11" class="main_chat_video_BC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=1&pst=2&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-12" class="main_chat_video_BC" ></a>
+				<video id="js-streamV-12" class="main_chat_video_BC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=1&pst=3&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-13" class="main_chat_video_BC" ></a>
+				<video id="js-streamV-13" class="main_chat_video_BC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=1&pst=4&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-14" class="main_chat_video_BC" ></a>
+				<video id="js-streamV-14" class="main_chat_video_BC" controls="controls" style="display:none;"></video>
 			</div>
 			<div class="main_chat_video_R">
-				<video id="js-stream-21" class="main_chat_video_RC"></video>
-				<video id="js-stream-22" class="main_chat_video_RC"></video>
-				<video id="js-stream-23" class="main_chat_video_RC"></video>
-				<video id="js-stream-24" class="main_chat_video_RC"></video>
+				<a href="../video.php?team=0&pst=1&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-01" class="main_chat_video_RC" ></a>
+				<video id="js-streamV-01" class="main_chat_video_RC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=0&pst=2&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-02" class="main_chat_video_RC" ></a>
+				<video id="js-streamV-02" class="main_chat_video_RC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=0&pst=3&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-03" class="main_chat_video_RC" ></a>
+				<video id="js-streamV-03" class="main_chat_video_RC" controls="controls" style="display:none;"></video>
+				<a href="../video.php?team=0&pst=4&themeId=<?php echo $themeId; ?>" style="display:block;" id="js-streamA-04" class="main_chat_video_RC" ></a>
+				<video id="js-streamV-04" class="main_chat_video_RC" controls="controls" style="display:none;"></video>
 			</div>
 		</div>
-		<?php
+		<?php //要一个for循环
 		$sql = "SELECT * FROM video WHERE theme_id = '$themeId'";
 		$result = mysqli_query($con,$sql);
 		$num = mysqli_num_rows($result);
 		if($num>0){
-				$row_t = mysqli_fetch_array($result);
-
+					while($row_t = mysqli_fetch_array($result) ){
 				?>
 				<script>
 						var team = "<?php echo $row_t[4]; ?>";
 						var pst = "<?php echo $row_t[5]; ?>";
 						var video_path = "../<?php echo $row_t[2]; ?>"
-						document.getElementById('js-stream-'+team+''+pst).setAttribute("src", video_path);
+						document.getElementById('js-streamA-'+team+''+pst).style.display = "none";
+						document.getElementById('js-streamV-'+team+''+pst).style.display = "block";
+						document.getElementById('js-streamV-'+team+''+pst).setAttribute("src", video_path);
 				</script>
 				<?php
+			}
 		}
 		?>
 		<div>
