@@ -1,13 +1,11 @@
 <?php
 if (!session_id()) session_start();
-if(empty($_SESSION['userId'])) $_SESSION['userId'] = null;
-if(empty($_GET["themeId"])) $_GET["themeId"] = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{theme}</title>
+	<title>昼ご飯を食べた後に眠くなるのを防ぐ方法</title>
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
 	<?php
@@ -45,23 +43,19 @@ if(empty($_GET["themeId"])) $_GET["themeId"] = null;
 			<!--头像部分-->
 			<div class="head">
 				<?php
-						if($userId){
-							$sql = "select * from user where user_id = '$userId' ";
-							$result = mysqli_query($con,$sql);
-							$num = mysqli_num_rows($result);
-							$row = mysqli_fetch_array($result);
-							if($row[4])
-							echo "<img src=../../".$row[4]." class='head_img'/>";
-					else
-					echo "<img src='../../img/head.jpg' class='head_img'/>";
-				}else{
+						$sql = "select * from user where user_id = '$userId' ";
+						$result = mysqli_query($con,$sql);
+                        //$num = mysqli_num_rows($result);
+						$row = mysqli_fetch_array($result);
+						if($row[4])
+						echo "<img src=../../".$row[4]." class='head_img'/>";
+				else
 				echo "<img src='../../img/head.jpg' class='head_img'/>";
-				}
 				?>
 
 
 				<!--弹出登录界面-->
-				<?php if(!$userId)
+				<?php if(!$row)
 						{  //如果未登录，弹出：
 						?>
 				<div class="alert_login">
@@ -164,7 +158,7 @@ if(empty($_GET["themeId"])) $_GET["themeId"] = null;
 <div class="main_chat_body">
 	<div class="container">
 		<div class="main_chat_Theme">
-			<span >{theme}</span>
+			<span >昼ご飯を食べた後に眠くなるのを防ぐ方法</span>
 		</div>
 		<div class="main_chat_room">
 			<div class="main_chat_video_B">

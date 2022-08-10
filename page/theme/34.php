@@ -7,7 +7,7 @@ if(empty($_GET["themeId"])) $_GET["themeId"] = null;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{theme}</title>
+	<title>玩玩</title>
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
 	<?php
@@ -164,7 +164,7 @@ if(empty($_GET["themeId"])) $_GET["themeId"] = null;
 <div class="main_chat_body">
 	<div class="container">
 		<div class="main_chat_Theme">
-			<span >{theme}</span>
+			<span >玩玩</span>
 		</div>
 		<div class="main_chat_room">
 			<div class="main_chat_video_B">

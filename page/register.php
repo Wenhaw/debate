@@ -75,7 +75,7 @@
 
             <!--投稿部分-->
             <div class="upload">
-                <a href="up_video.php"><div class="ul_c">投稿</div></a>
+                <a href="themeUp.php"><div class="ul_c">投稿</div></a>
             </div>
 
         </div>

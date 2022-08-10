@@ -5,6 +5,9 @@ header("content-type:text/html;charset=utf-8");
 require_once("conn.php");
 global $con;
 
+//获取当前用户id
+$userId = $_SESSION["userId"];
+
 //获取表单数据
 $theme = $_POST["theme"];
 /*$describe = $_POST["themeDsc"];
@@ -67,11 +70,11 @@ if($_POST["themePrv"])
 //插入数据
 global $wrong1;
 if($wrong1==3)
-    echo "<script>alert('头像上传失败！');location='themeUp.php'</script>";
+    echo "<script>alert('画像アップロード失敗');location='themeUp.php'</script>";
 else{
     $img_path= "user/themeImg/" . $_FILES["themeImg"]["name"];//读取封面地址
     if($_POST['theme']){
-                $sql="insert into theme (theme_id,theme_name,theme_dsc,theme_img,theme_privacy,theme_path) values('$themeId[0]','$_POST[theme]','$_POST[themeDsc]','$img_path','$privacy','$path')";
+                $sql="insert into theme (theme_id,theme_name,theme_dsc,theme_img,theme_privacy,theme_path,uploader) values('$themeId[0]','$_POST[theme]','$_POST[themeDsc]','$img_path','$privacy','$path','$userId')";
                 mysqli_query($con,$sql);
                 $num_d=mysqli_affected_rows($con);
                 if($num_d>0)

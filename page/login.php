@@ -32,22 +32,8 @@
         <div class="TNgvt_bar_l">
             <!--头像部分-->
             <div class="head">
-                <?php
-                $sql = "select * from identity_information where tel = '$tel' ";
-                $result = mysqli_query($con,$sql);
-                //$num = mysqli_num_rows($result);
-                //$row = mysqli_fetch_array($result);
-                if($row!=0)
-                    echo "<img src=".$row[4]." class='head_img'/>";
-                else
-                    echo "<img src='../img/head.jpg' class='head_img'/>";
-                ?>
-
-
+                <img src='../img/head.jpg' class='head_img'/>
                 <!--弹出登录界面-->
-                <?php if($row == 0)
-                {  //如果未登录，弹出：
-                    ?>
                     <div class="alert_login">
                         ログインしてできること：
                         <!--弹幕动画部分-->
@@ -85,49 +71,6 @@
                             </div></a>
                         <div class="register">初めて?<a href="register.php">こちらで登録</a></div>
                     </div>
-                <?php }
-                else { //如果登录，弹出：
-                    ?>
-                    <div class="alert_login">
-                        いらっしゃい：<?php echo $row[0]; ?>
-                        <!--弹幕动画部分-->
-                        <div class="a_l_img">
-                            <div id="demo">
-                                <div id="indemo">
-                                    <div id="demo1">
-                                        <img src="../img/danmu.png" border="0" />
-                                        <img src="../img/danmu.png" border="0" />
-                                        <img src="../img/danmu.png" border="0" />
-                                    </div>
-                                    <div id="demo2"></div>
-                                </div>
-                            </div>
-                            <script>
-                                var speed=10; //数字越大速度越慢
-                                var tab=document.getElementById("demo");
-                                var tab1=document.getElementById("demo1");
-                                var tab2=document.getElementById("demo2");
-                                tab2.innerHTML=tab1.innerHTML;
-                                function Marquee(){
-                                    if(tab2.offsetWidth-tab.scrollLeft<=0)
-                                        tab.scrollLeft-=tab1.offsetWidth
-                                    else{
-                                        tab.scrollLeft++;
-                                    }
-                                }
-                                var MyMar=setInterval(Marquee,speed);
-                                tab.onmouseover=function() {clearInterval(MyMar)};
-                                tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
-                            </script>
-                        </div>
-                        <a href="logout.php" ><div class="btn_login">
-                                <p>ログアウト</p>
-                            </div></a>
-                        <div class="register"><a href="edit.php">プライバシー</a></div>
-                    </div>
-                    <?php
-                }
-                ?>
 
             </div>
 
@@ -137,7 +80,7 @@
 
             <!--投稿部分-->
             <div class="upload">
-                <a href="up_video.php"><div class="ul_c">投稿</div></a>
+                <a href="themeUp.php"><div class="ul_c">投稿</div></a>
             </div>
 
         </div>

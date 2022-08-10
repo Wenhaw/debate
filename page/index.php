@@ -1,11 +1,14 @@
 <?php
 if (!session_id()) session_start();
+if(empty($_SESSION['userId'])) $_SESSION['userId'] = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>DebateLink</title>
+    <!--引入jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <?php
@@ -42,6 +45,7 @@ if (!session_id()) session_start();
             <!--头像部分-->
             <div class="head">
                 <?php
+                if($userId){
 						$sql = "select * from user where user_id = '$userId' ";
 						$result = mysqli_query($con,$sql);
                         $num = mysqli_num_rows($result);
@@ -50,11 +54,14 @@ if (!session_id()) session_start();
 						echo "<img src=../".$row[4]." class='head_img'/>";
                 else
                 echo "<img src='../img/head.jpg' class='head_img'/>";
+            }else{
+            echo "<img src='../img/head.jpg' class='head_img'/>";
+            }
                 ?>
 
 
                 <!--弹出登录界面-->
-                <?php if(!$row)
+                <?php if(!$userId)
 						{  //如果未登录，弹出：
 						?>
                 <div class="alert_login">
@@ -158,39 +165,39 @@ if (!session_id()) session_start();
         <input type="text" name="search" class="sc_text" placeholder="Search" />
         <input type="button" onclick="alert('it not work')" class="sc_btn"/>
     </div>
-    <div class="card">
-        <div class="TAI">
-            <div class="theme">
-                ワクチンを接種すべきか
-            </div>
-            <div class="icon">
-                <a href="#"><img src="../img/head.png" class="icon_img"/></a>
-            </div>
-        </div>
-        <div class="suoluetu">
-            <img src="../img/suoluetudt.jpg" class="suoluetu_img">
-        </div>
-        <div class="other">
-            <a href="#" class="good"><div class="other_img_f"><img src="../img/good.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="comments"><div class="other_img_f"><img src="../img/comments.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="favorites"><div class="other_img_f"><img src="../img/favorites.png" class="other_img"/></div></a>
-            <a href="#" class="share"><div class="other_img_f"><img src="../img/share.png" class="other_img"/></div></a>
-            <a href="#" class="more"><div class="other_img_f"><img src="../img/more.png" class="other_img"/></div></a>
-        </div>
-    </div>
 
-    <!--***** card *****-->
+<!--***** card *****-->
+    <?php
+    //从数据库中读取现存主题
+    //1.主题为私人的不读取
+    //2.按时间倒序排列
+    $sql_t = "SELECT * FROM theme WHERE theme_privacy=0 ORDER BY theme_time DESC " ;
+    $result_t = mysqli_query($con,$sql_t);
+    //$row_t = mysqli_fetch_array($result_t);
+    //$num_t = mysqli_num_rows($result_t);
+
+    //src="../img/suoluetudt.jpg"
+
+  	while($row_t = mysqli_fetch_array($result_t)){
+
+  	    $sql_u = "SELECT * FROM user WHERE user_id = '$row_t[7]'";
+        $result_u = mysqli_query($con,$sql_u);
+  	    $row_u = mysqli_fetch_array($result_u);
+  					?>
+
     <div class="card">
         <div class="TAI">
             <div class="theme">
-                ワクチンを接種すべきか
+                <?php echo $row_t[1]; ?>
             </div>
             <div class="icon">
-                <a href="#"><img src="../img/head.png" class="icon_img"/></a>
+                <a href="#"><img src="<?php echo "../".$row_u[4];?>" class="icon_img" onerror="this.src='../img/head.jpg'"/></a>
             </div>
         </div>
         <div class="suoluetu">
-            <img src="../img/suoluetudt.jpg" class="suoluetu_img">
+          <a href="<?php echo 'theme/'.$row_t[0].'.php?themeId='.$row_t[0]; ?>">
+            <img  src="<?php echo "../".$row_t[3]; ?>" class="suoluetu_img" onerror="this.src='../img/suoluetudt.jpg'">
+          </a>
         </div>
         <div class="other">
             <a href="#" class="good"><div class="other_img_f"><img src="../img/good.png" class="other_img"/></div><p>100</p></a>
@@ -200,46 +207,10 @@ if (!session_id()) session_start();
             <a href="#" class="more"><div class="other_img_f"><img src="../img/more.png" class="other_img"/></div></a>
         </div>
     </div>
-    <div class="card">
-        <div class="TAI">
-            <div class="theme">
-                ワクチンを接種すべきか
-            </div>
-            <div class="icon">
-                <a href="#"><img src="../img/head.png" class="icon_img"/></a>
-            </div>
-        </div>
-        <div class="suoluetu">
-            <img src="../img/suoluetudt.jpg" class="suoluetu_img">
-        </div>
-        <div class="other">
-            <a href="#" class="good"><div class="other_img_f"><img src="../img/good.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="comments"><div class="other_img_f"><img src="../img/comments.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="favorites"><div class="other_img_f"><img src="../img/favorites.png" class="other_img"/></div></a>
-            <a href="#" class="share"><div class="other_img_f"><img src="../img/share.png" class="other_img"/></div></a>
-            <a href="#" class="more"><div class="other_img_f"><img src="../img/more.png" class="other_img"/></div></a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="TAI">
-            <div class="theme">
-                ワクチンを接種すべきか
-            </div>
-            <div class="icon">
-                <a href="#"><img src="../img/head.png" class="icon_img"/></a>
-            </div>
-        </div>
-        <div class="suoluetu">
-            <img src="../img/suoluetudt.jpg" class="suoluetu_img">
-        </div>
-        <div class="other">
-            <a href="#" class="good"><div class="other_img_f"><img src="../img/good.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="comments"><div class="other_img_f"><img src="../img/comments.png" class="other_img"/></div><p>100</p></a>
-            <a href="#" class="favorites"><div class="other_img_f"><img src="../img/favorites.png" class="other_img"/></div></a>
-            <a href="#" class="share"><div class="other_img_f"><img src="../img/share.png" class="other_img"/></div></a>
-            <a href="#" class="more"><div class="other_img_f"><img src="../img/more.png" class="other_img"/></div></a>
-        </div>
-    </div>
+<?php
+}
+?>
+
 </div>
 </body>
 </html>

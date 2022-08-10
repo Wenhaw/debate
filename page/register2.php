@@ -33,20 +33,8 @@ else
   	$wrong1="3";
   echo "头像上传失败，可能是格式错误";
   }
-	?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-</head>
-
-<body>
-
-  
-  
-<?php
+  //数据处理
 include_once('conn.php');
 global $con;
 global $wrong1;
@@ -80,5 +68,3 @@ else
   echo "输入为空！";
 }
 ?>
-</body>
-</html>
